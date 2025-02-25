@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vercel-build": "pnpm install --no-frozen-lockfile && vercel build"
+    "vercel-build": "pnpm add -g vercel && vercel build"
+
+  
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",
