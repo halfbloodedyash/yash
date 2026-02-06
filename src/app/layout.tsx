@@ -4,13 +4,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Manrope as FontSans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { MusicToggleButton } from "@/components/ui/music-toggle";
 import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
+import { Analytics } from "@vercel/analytics/react";
 
-const fontSans = FontSans({
-  subsets: ["latin"],
+const fontSans = localFont({
+  src: "../fonts/a343f882a40d2cc9-s.p.71e1367e.woff2",
   variable: "--font-sans",
 });
 
@@ -81,6 +82,7 @@ export default function RootLayout({
         <div className="fixed bottom-4 left-4 z-50">
           <MusicToggleButton />
         </div>
+        <Analytics />
       </body>
     </html>
   );
