@@ -33,6 +33,9 @@ export default function Page() {
             <div className="h-1 w-1 bg-muted-foreground rounded-full" />
             <TimeDisplay />
           </div>
+          <div className="mt-1">
+            <SpotifyStatus />
+          </div>
         </BlurFade>
       </section>
 
@@ -67,12 +70,6 @@ export default function Page() {
             </Link>
             .
           </p>
-        </BlurFade>
-      </section>
-
-      <section className="pb-12">
-        <BlurFade delay={BLUR_FADE_DELAY * 5.5}>
-          <SpotifyStatus />
         </BlurFade>
       </section>
 
