@@ -6,6 +6,7 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { TimeDisplay } from "@/components/ui/time-display";
+import { SpotifyStatus } from "@/components/spotify-status";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -66,6 +67,12 @@ export default function Page() {
             </Link>
             .
           </p>
+        </BlurFade>
+      </section>
+
+      <section className="pb-12">
+        <BlurFade delay={BLUR_FADE_DELAY * 5.5}>
+          <SpotifyStatus />
         </BlurFade>
       </section>
 
