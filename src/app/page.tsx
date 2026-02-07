@@ -15,7 +15,7 @@ export default function Page() {
     <main className="blog-section flex flex-col min-h-[100dvh] pb-24 relative">
 
       {/* Header Section */}
-      <section className="pt-8 pb-12">
+      <section className="pt-8 pb-12 max-w-[592px]">
         <BlurFade delay={BLUR_FADE_DELAY}>
           <h1 className="text-4xl font-bold tracking-tight text-foreground">{DATA.name}</h1>
           <div className="text-muted-foreground mt-1 flex items-center gap-1">
@@ -40,7 +40,7 @@ export default function Page() {
       </section>
 
       {/* Intro Section */}
-      <section className="pb-16 space-y-6">
+      <section className="pb-16 space-y-6 max-w-[592px]">
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <p className="text-muted-foreground leading-relaxed">
             I’m an engineer who likes building things that actually work in the real world.
@@ -52,21 +52,21 @@ export default function Page() {
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <p className="text-muted-foreground leading-relaxed">
-            I enjoy going deep, understanding things properly, and learning by building. Still experimenting, still improving, always working on something new.          </p>
+            Slightly obsessed with making things simpler than they need to be.      </p>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 5}>
           <p className="text-muted-foreground leading-relaxed">
             You&apos;ll find me shitposting on{" "}
-            <Link href={DATA.contact.social.X.url} className="text-blue-500 hover:underline">
+            <Link href={DATA.contact.social.X.url} target="_blank" className="relative text-foreground transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] dark:hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-100 after:bg-foreground after:transition-transform after:duration-300 hover:after:scale-x-0 hover:after:origin-right">
               X
             </Link>
-            , check out my{" "}
-            <Link href="https://store.kshv.me" className="text-blue-500 hover:underline">
-              digital store
+            , building things on{" "}
+            <Link href={DATA.contact.social.GitHub.url} target="_blank" className="relative text-foreground transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] dark:hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-100 after:bg-foreground after:transition-transform after:duration-300 hover:after:scale-x-0 hover:after:origin-right">
+              GitHub
             </Link>
-            , or you can always reach me at{" "}
-            <Link href={`mailto:${DATA.contact.email}`} className="text-blue-500 hover:underline">
-              {DATA.contact.email}
+            , or logging films on{" "}
+            <Link href="https://letterboxd.com/halfbloodedyash" target="_blank" className="relative text-foreground transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] dark:hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-100 after:bg-foreground after:transition-transform after:duration-300 hover:after:scale-x-0 hover:after:origin-right">
+              Letterboxd
             </Link>
             .
           </p>
@@ -74,16 +74,18 @@ export default function Page() {
       </section>
 
       {/* Skills Section */}
-      <section className="pb-16">
+      <section className="pb-16 max-w-[592px]">
         <BlurFade delay={BLUR_FADE_DELAY * 6}>
           <h2 className="text-lg font-semibold mb-4 text-foreground">Skills</h2>
           <p className="text-sm text-muted-foreground mb-6">Technologies and tools I work with.</p>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 7}>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+          <div className="grid grid-cols-3 gap-8 w-full">
             {DATA.skills.map((skill, index) => (
-              <div key={skill} className="text-sm text-muted-foreground">
-                {skill}
+              <div key={skill} className="flex flex-col gap-1 w-full">
+                <span className="text-sm text-muted-foreground cursor-default transition-all duration-300 hover:text-foreground hover:scale-105 hover:-translate-y-0.5 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
+                  {skill}
+                </span>
               </div>
             ))}
           </div>
@@ -91,7 +93,7 @@ export default function Page() {
       </section>
 
       {/* Career Section */}
-      <section className="pb-16">
+      <section className="pb-16 max-w-[592px]">
         <BlurFade delay={BLUR_FADE_DELAY * 8}>
           <h2 className="text-lg font-semibold mb-4 text-foreground">Career</h2>
           <p className="text-sm text-muted-foreground mb-8">Work experiences and roles.</p>
@@ -105,16 +107,16 @@ export default function Page() {
                 <div className="flex items-start gap-4">
                   <div className="w-1 h-1 rounded-full bg-muted-foreground mt-2 flex-shrink-0" />
                   <div className="flex-1 space-y-1">
-                    <div className="flex flex-wrap items-baseline gap-x-2">
+                    <div className="flex items-baseline justify-between gap-4">
                       <Link href={job.href || "#"} className="flex items-center gap-2 group hover:underline">
                         <h4 className="font-medium text-foreground">{job.company}</h4>
                         <ArrowUpRight className="size-3 opacity-65 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
                       </Link>
+                      <span className="text-sm text-muted-foreground whitespace-nowrap">{job.start} - {job.end ?? "Present"}</span>
                     </div>
                     <div className="flex flex-col">
                       <div className="flex-1 flex flex-col gap-1 pb-2">
                         <span className="font-medium text-sm">{job.title}</span>
-                        <span className="text-sm text-muted-foreground">{job.start} - {job.end ?? "Present"}</span>
                         <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
                           {job.description}
                         </p>
@@ -129,7 +131,7 @@ export default function Page() {
       </section>
 
       {/* Education Section */}
-      <section className="pb-16">
+      <section className="pb-16 max-w-[592px]">
         <BlurFade delay={BLUR_FADE_DELAY * 14}>
           <h2 className="text-lg font-semibold mb-4 text-foreground">Education</h2>
           <p className="text-sm text-muted-foreground mb-8">Academic background.</p>
@@ -142,16 +144,16 @@ export default function Page() {
                 <div className="flex items-start gap-4">
                   <div className="w-1 h-1 rounded-full bg-muted-foreground mt-2 flex-shrink-0" />
                   <div className="flex-1 space-y-1">
-                    <div className="flex flex-wrap items-baseline gap-x-2">
+                    <div className="flex items-baseline justify-between gap-4">
                       <Link href={edu.href || "#"} className="flex items-center gap-2 group hover:underline">
                         <h4 className="font-medium text-foreground">{edu.school}</h4>
                         <ArrowUpRight className="size-3 opacity-65 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
                       </Link>
+                      <span className="text-sm text-muted-foreground whitespace-nowrap">{edu.start} - {edu.end}</span>
                     </div>
                     <div className="flex flex-col">
                       <div className="flex-1 flex flex-col gap-1 pb-2">
                         <span className="font-medium text-sm">{edu.degree}</span>
-                        <span className="text-sm text-muted-foreground">{edu.start} - {edu.end}</span>
                       </div>
                     </div>
                   </div>
@@ -165,7 +167,7 @@ export default function Page() {
 
 
       {/* Projects Built Section */}
-      <section className="pb-16">
+      <section className="pb-16 max-w-[592px]">
         <BlurFade delay={BLUR_FADE_DELAY * 18}>
           <h2 className="text-lg font-semibold mb-4 text-foreground">Projects I Built</h2>
           <p className="text-sm text-muted-foreground mb-8">Personal projects and experiments.</p>
@@ -225,7 +227,7 @@ export default function Page() {
       </section>
 
       {/* OSS Contributions Section */}
-      <section className="pb-16">
+      <section className="pb-16 max-w-[592px]">
         <BlurFade delay={BLUR_FADE_DELAY * 22}>
           <h2 className="text-lg font-semibold mb-4 text-foreground">OSS Contributions</h2>
           <p className="text-sm text-muted-foreground mb-8">Open source projects I&apos;ve contributed to</p>

@@ -33,7 +33,7 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/keshav",
+        url: "https://github.com/halfbloodedyash",
         icon: Icons.github,
         navbar: true,
       },
@@ -45,7 +45,7 @@ export const DATA = {
       },
       X: {
         name: "X",
-        url: "https://x.com/kshvbgde",
+        url: "https://x.com/eth_yash",
         icon: Icons.x,
         navbar: true,
       },
@@ -74,12 +74,12 @@ export const DATA = {
   ],
   education: [
     {
-      school: "University Name",
-      href: "https://university.edu",
+      school: "Vellore Institute of Technology",
+      href: "https://vit.ac.in/",
       degree: "Bachelor's Degree in Computer Science",
       logoUrl: "/university.png",
-      start: "2020",
-      end: "2024",
+      start: "2021",
+      end: "2026",
     },
   ],
   projects: [
