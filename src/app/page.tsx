@@ -1,6 +1,6 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
-import { SparklesCore } from "@/components/ui/sparkles";
+import { ThemedSparkles } from "@/components/ui/sparkles";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
@@ -40,7 +40,7 @@ export default function Page() {
       </section>
 
       {/* Intro Section */}
-      <section className="pb-12 space-y-6">
+      <section className="pb-16 space-y-6">
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <p className="text-muted-foreground leading-relaxed">
             I’m an engineer who likes building things that actually work in the real world.
@@ -74,7 +74,7 @@ export default function Page() {
       </section>
 
       {/* Skills Section */}
-      <section className="pb-12">
+      <section className="pb-16">
         <BlurFade delay={BLUR_FADE_DELAY * 6}>
           <h2 className="text-lg font-semibold mb-4 text-foreground">Skills</h2>
           <p className="text-sm text-muted-foreground mb-6">Technologies and tools I work with.</p>
@@ -91,7 +91,7 @@ export default function Page() {
       </section>
 
       {/* Career Section */}
-      <section className="pb-12">
+      <section className="pb-16">
         <BlurFade delay={BLUR_FADE_DELAY * 8}>
           <h2 className="text-lg font-semibold mb-4 text-foreground">Career</h2>
           <p className="text-sm text-muted-foreground mb-8">Work experiences and roles.</p>
@@ -129,7 +129,7 @@ export default function Page() {
       </section>
 
       {/* Education Section */}
-      <section className="pb-12">
+      <section className="pb-16">
         <BlurFade delay={BLUR_FADE_DELAY * 14}>
           <h2 className="text-lg font-semibold mb-4 text-foreground">Education</h2>
           <p className="text-sm text-muted-foreground mb-8">Academic background.</p>
@@ -165,7 +165,7 @@ export default function Page() {
 
 
       {/* Projects Built Section */}
-      <section className="pb-12">
+      <section className="pb-16">
         <BlurFade delay={BLUR_FADE_DELAY * 18}>
           <h2 className="text-lg font-semibold mb-4 text-foreground">Projects I Built</h2>
           <p className="text-sm text-muted-foreground mb-8">Personal projects and experiments.</p>
@@ -225,7 +225,7 @@ export default function Page() {
       </section>
 
       {/* OSS Contributions Section */}
-      <section className="pb-12">
+      <section className="pb-16">
         <BlurFade delay={BLUR_FADE_DELAY * 22}>
           <h2 className="text-lg font-semibold mb-4 text-foreground">OSS Contributions</h2>
           <p className="text-sm text-muted-foreground mb-8">Open source projects I&apos;ve contributed to</p>
@@ -276,10 +276,10 @@ export default function Page() {
       <section className="pt-24 pb-12 relative overflow-hidden">
         <BlurFade delay={BLUR_FADE_DELAY * 26}>
           <div className="relative flex flex-col items-center justify-center">
-            <h2 className="text-[12rem] sm:text-[16rem] md:text-[20rem] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-t from-blue-600/80 via-purple-500/50 to-transparent select-none leading-none z-10">
+            <h2 className="text-[8rem] sm:text-[12rem] md:text-[16rem] lg:text-[20rem] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-t from-blue-600/80 via-purple-500/50 to-transparent select-none leading-none z-10">
               YASH
             </h2>
-            <div className="w-[40rem] h-40 relative">
+            <div className="w-full max-w-[40rem] h-40 relative">
               {/* Gradients */}
               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
@@ -287,13 +287,12 @@ export default function Page() {
               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
 
               {/* Core component */}
-              <SparklesCore
+              <ThemedSparkles
                 background="transparent"
                 minSize={0.4}
                 maxSize={1}
                 particleDensity={1200}
                 className="w-full h-full"
-                particleColor="#FFFFFF"
               />
 
               {/* Radial Gradient to prevent sharp edges */}

@@ -30,6 +30,18 @@ export async function GET() {
         const song = await response.json();
 
         if (song.item === null) {
+            // No current track, fallback to recently played
+            const recentlyPlayed = await getRecentlyPlayed();
+            const recentData = await recentlyPlayed.json();
+
+            if (recentData.items && recentData.items.length > 0) {
+                const recentTrack = recentData.items[0].track;
+                return NextResponse.json({
+                    status: "last_played",
+                    title: recentTrack.name,
+                    url: recentTrack.external_urls.spotify,
+                });
+            }
             return NextResponse.json({ status: "offline", title: null, url: null });
         }
 

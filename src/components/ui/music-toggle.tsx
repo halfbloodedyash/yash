@@ -16,6 +16,9 @@ export const MusicToggleButton = () => {
     const CROSSFADE_DURATION = 4000; // 4 seconds
     const DEFAULT_VOLUME = 0.6;
 
+    // Track if component is mounted (for hydration safety)
+    const [mounted, setMounted] = useState(false);
+
     // State for the two channels
     const [indexA, setIndexA] = useState(0);
     const [indexB, setIndexB] = useState(1);
@@ -43,7 +46,13 @@ export const MusicToggleButton = () => {
         return Array.from({ length: bars }, () => Math.random() * 0.8 + 0.2);
     };
 
-    const [heights, setHeights] = useState(getRandomHeights());
+    // Use static initial heights to avoid hydration mismatch
+    const [heights, setHeights] = useState(() => Array(bars).fill(0.5));
+
+    // Set mounted state after hydration
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     // Monitor playback for crossfade
     useEffect(() => {
@@ -173,6 +182,9 @@ export const MusicToggleButton = () => {
                 whileTap={{ padding: "18px 22px " }}
                 transition={{ duration: 1, bounce: 0.6, type: "spring" }}
                 className="bg-background cursor-pointer rounded-full p-2 border shadow-lg"
+                role="button"
+                aria-label={isPlaying ? "Pause background music" : "Play background music"}
+                tabIndex={0}
             >
                 <motion.div
                     initial={{ opacity: 0, filter: "blur(4px)" }}

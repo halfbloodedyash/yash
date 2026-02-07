@@ -5,7 +5,8 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import type { Container, SingleOrMultiple } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { cn } from "@/lib/utils";
-import { motion, useAnimation } from "motion/react";
+import { motion, useAnimation } from "framer-motion";
+import { useTheme } from "next-themes";
 
 type ParticlesProps = {
     id?: string;
@@ -431,4 +432,20 @@ export const SparklesCore = (props: ParticlesProps) => {
             )}
         </motion.div>
     );
+};
+
+// Theme-aware wrapper that automatically adjusts sparkle color based on current theme
+export const ThemedSparkles = (props: Omit<ParticlesProps, "particleColor">) => {
+    const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Use a dark color for light mode, white for dark mode
+    // Default to dark mode color during SSR to avoid flash
+    const particleColor = mounted && resolvedTheme === "light" ? "#3B82F6" : "#FFFFFF";
+
+    return <SparklesCore {...props} particleColor={particleColor} />;
 };

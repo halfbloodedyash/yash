@@ -51,7 +51,7 @@ export const DATA = {
       },
       email: {
         name: "Send Email",
-        url: "mailto:contact2yash@protonmail.com",
+        url: "mailto:kesh@ux.me",
         icon: Icons.email,
         navbar: false,
       },

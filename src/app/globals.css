@@ -24,6 +24,7 @@
         --input: 0 0% 89.8%;
         --ring: 0 0% 3.9%;
         --radius: 0.5rem;
+        --text-default: #1f1f1f;
     }
 
     .dark {
@@ -36,9 +37,9 @@
         --primary: 0 0% 98%;
         --primary-foreground: 0 0% 9%;
         --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 73.5%;
+        --secondary-foreground: 0 0% 80%;
         --muted: 0 0% 10.9%;
-        --muted-foreground: 0 0% 53.5%;
+        --muted-foreground: 0 0% 73%;
         --accent: 208 25% 15%;
         --accent-foreground: 0 0% 98%;
         --destructive: 0 62.8% 30.6%;
@@ -46,6 +47,7 @@
         --border: 0 0% 14.9%;
         --input: 0 0% 14.9%;
         --ring: 0 0% 83.1%;
+        --text-default: #c4c4c4;
     }
 
     * {
@@ -56,14 +58,10 @@
         @apply bg-background text-foreground;
     }
 
+    /* Text colors for paragraphs and divs - using CSS vars for maintainability */
     p,
     div {
-        color: #1f1f1f !important;
-    }
-
-    .dark p,
-    .dark div {
-        color: #bbbbbb !important;
+        color: var(--text-default);
     }
 
     h1 {
@@ -208,7 +206,4 @@
     animation-name: reveal-dark;
 }
 
-::view-transition-old(root), ::view-transition-new(root) {
-    animation: none;
-    mix-blend-mode: normal;
-}
+/* View transitions handled by animated-theme-toggler.tsx */
